@@ -1,0 +1,10 @@
+<h1>New opponent:</h1>
+<form method="POST" action="/opponents" >
+<input type="hidden" name="user_id" value="<%= current_user.id %>"
+   <p>Gamertag<input type="text" name="gamertag"></p>
+   <p>Game<input type="text" name="game"></p>
+   <p>Bracket<input type="text" name="bracket"></p>
+   <p>Character(s)<input type="text" name="characters"></p>
+   <p>Score<input type="string" name="score"></p>
+<input type="submit" value="Submit!">
+</form>

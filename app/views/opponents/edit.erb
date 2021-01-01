@@ -1,0 +1,10 @@
+Edit <%= @opponent.gamertag %><br><br>
+<form action="/opponents/<%= @opponent.id %>" method="POST">
+    <input type="hidden" name="_method" value="PATCH">
+    <p>Gamertag<input type="text" name="gamertag" value = <%=@opponent.gamertag%>></p>
+    <p>Game<input type="text" name="game" value = <%=@opponent.game%>></p>
+    <p>Bracket<input type="text" name="bracket" value = <%=@opponent.bracket%>></p>
+    <p>Character(s)<input type="text" name="characters" value = <%=@opponent.characters%>></p>
+    <p>Score<input type="string" name="score" value = <%=@opponent.score%>></p>
+    <input type="submit" value="Submit!">
+</form>

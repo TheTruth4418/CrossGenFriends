@@ -1,0 +1,9 @@
+<h1> Opponent List </h1>
+    <ul>
+    <% @opponents.each do |x| %>
+       <li><a href="/opponents/<%=x.id%>"> <%= x.gamertag %> - <%= x.game %></li>
+    <% end %>
+    </ul>
+<a href="/opponents/new"> New Opponent</a>
+<a href="/opponents/new"> Home</a>
+

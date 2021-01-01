@@ -18,40 +18,32 @@ class ApplicationController < Sinatra::Base
 
   get "/user/home" do
     @user = User.find(session[:user_id])
-    erb :'User/home'
+    erb :'user/home'
   end
 
-  # Login/Logout actions
-
-  get '/signup' do
-    erb :'/account/signup'
+  get '/error' do
+    erb :error
   end
 
-  post "/signup" do
-    @user = User.new(:username => params[:username], :password => params[:password])
-    @user.save
-    session[:user_id] = @user.id
-    puts params
-    redirect '/user/home'
-  end
+  helpers do 
+    def logged_in?
+        !!session[:user_id]
+    end 
 
-  get '/login' do 
-    erb :"/account/login"
-  end
+    def current_user
+        @current_user ||= User.find_by_id(session[:user_id])
+    end 
 
-  post '/login' do
-    @user = User.find_by(:username => params[:username], :password_digest => params[:password])
-    if @user
-      session[:user_id] = user.id
-      redirect '/user/home'
-      puts params
-    else
-      redirect '/login'
+    def who_is_it(opponent)
+      opponent.user == current_user
     end
-end
 
-get "/logout" do
-  session.clear
-  redirect "/"
-end
+    def redirect_if_not_logged_in
+        flash[:message] = "Please log in before continuing!"
+        redirect to '/signin' if !logged_in?
+    end
+    
+end 
+
+
 end

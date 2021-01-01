@@ -1,0 +1,12 @@
+<p>Gamertag: <%= @opponent.gamertag %></p>
+<p>Game: <%= @opponent.game %></p>
+<p>Bracket: <%= @opponent.bracket %></p>
+<p>Character(s): <%= @opponent.characters %></p>
+<p>Score: <%= @opponent.score %></p>
+<% if logged_in? %>
+    <a href ="/opponents/<%=@opponent.id %>/edit"> Edit data</a>
+    <form method="POST" action="/opponents/<%= @opponent.id%>">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete Data">
+    </form>
+    <%end%>

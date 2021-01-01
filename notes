@@ -1,0 +1,11 @@
+Different controllers
+
+Application
+
+Users < ApplicationController
+
+Opponents < ApplicationController
+
+Can only edit/delete
+
+Make a foreign ID for the user ID

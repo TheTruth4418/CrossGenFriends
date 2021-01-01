@@ -1,0 +1,15 @@
+
+[1mFrom:[0m /mnt/c/Users/trill/Desktop/Sinatra project/tourney_opponents/app/controllers/opponents_controller.rb:19 self.POST /opponents:
+
+    [1;34m14[0m:             [33m:game[0m => params[[33m:game[0m],
+    [1;34m15[0m:             [33m:bracket[0m => params[[33m:bracket[0m],
+    [1;34m16[0m:             [33m:characters[0m => params[[33m:characters[0m],
+    [1;34m17[0m:             [33m:score[0m => params[[33m:score[0m],
+    [1;34m18[0m:         )
+ => [1;34m19[0m:         binding.pry
+    [1;34m20[0m:         opponent.user_id = @user.id
+    [1;34m21[0m:         [32mif[0m opponent.save
+    [1;34m22[0m:             redirect [31m[1;31m'[0m[31m/opponents[1;31m'[0m[31m[0m
+    [1;34m23[0m:         [32melse[0m
+    [1;34m24[0m:             redirect [31m[1;31m'[0m[31merror[1;31m'[0m[31m[0m
+
