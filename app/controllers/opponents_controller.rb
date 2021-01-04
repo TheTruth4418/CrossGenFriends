@@ -38,11 +38,11 @@ class OpponentsController < ApplicationController
             )
             redirect "/opponents/#{@opponent.id}"
         else
-            redirect '/ooponents'
+            redirect '/opponents'
         end
     end
 
-    delete 'opponents/:id' do
+    delete '/opponents/:id' do
         binding.pry
         @opponent = Opponent.find(params[:id])
         @opponent.destroy

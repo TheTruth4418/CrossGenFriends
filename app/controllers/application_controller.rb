@@ -24,8 +24,9 @@ class ApplicationController < Sinatra::Base
   get '/error' do
     erb :error
   end
-  
+
   helpers do 
+
     def logged_in?
         !!session[:user_id]
     end 
@@ -38,9 +39,9 @@ class ApplicationController < Sinatra::Base
       opponent.user == current_user
     end
 
-    def redirect_if_not_logged_in
-        flash[:message] = "Please log in before continuing!"
-        redirect to '/signin' if !logged_in?
+    def no_blank(user)
+      user.username != "" 
+      user.password != ""
     end
     
 end 
