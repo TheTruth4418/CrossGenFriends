@@ -24,7 +24,7 @@ class ApplicationController < Sinatra::Base
   get '/error' do
     erb :error
   end
-
+  
   helpers do 
     def logged_in?
         !!session[:user_id]

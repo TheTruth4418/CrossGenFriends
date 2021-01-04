@@ -1,8 +1,8 @@
 require './config/environment'
-use Rack::MethodOverride
+
 
 # Remember to migrate & to use UsersController/ OpponentsController
-
+use Rack::MethodOverride
 use UsersController
 use OpponentsController
 run ApplicationController

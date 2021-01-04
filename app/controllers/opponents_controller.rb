@@ -42,14 +42,9 @@ class OpponentsController < ApplicationController
         end
     end
 
-    delete 'opponents/:id' do
-        opponent = Opponent.find_by_id(params[:id])
-        if logged_in?
-            opponent.destroy
-            redirect to '/opponents'
-        else
-            redirect "/opponents/#{@opponent.id}"
-        end
+    delete "opponents/:id" do
+        @opponent.destroy
+        redirect to '/opponents'
     end
 
     post '/opponents' do

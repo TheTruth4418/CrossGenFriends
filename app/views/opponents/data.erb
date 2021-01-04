@@ -5,8 +5,8 @@
 <p>Score: <%= @opponent.score %></p>
 <% if logged_in? %>
     <a href ="/opponents/<%=@opponent.id %>/edit"> Edit data</a>
-    <form method="POST" action="/opponents/<%= @opponent.id%>">
-        <input type="hidden" name="_method" value="DELETE">
+    <form action="/opponents/<%=@opponent.id %>" method="POST" >
+        <input type="hidden" name="_method" value="delete">
         <input type="submit" value="Delete Data">
     </form>
     <%end%>
