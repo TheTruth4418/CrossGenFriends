@@ -4,14 +4,36 @@ class OpponentsController < ApplicationController
         erb :'/opponents/opponents'
     end
 
+    # Creating an opponent
+
     get '/opponents/new' do
         erb :'opponents/new_opponent'
     end
+
+    post '/opponents' do
+        opponent = Opponent.new(
+            :gamertag => params[:gamertag],
+            :game => params[:game],
+            :bracket => params[:bracket],
+            :characters => params[:characters],
+            :score => params[:score],
+            :user_id => params[:user_id]
+        )
+        if opponent.save && filled_info(opponent)
+            redirect '/opponents'
+        else
+            redirect '/opponents/new'
+        end
+    end
+
+    # Reading the opponent data
 
     get '/opponents/:id' do
         @opponent = Opponent.find(params[:id])
         erb :'/opponents/data'
     end
+
+    # Updating the opponent data
 
     get '/opponents/:id/edit' do
         @opponent = Opponent.find(params[:id])
@@ -42,25 +64,12 @@ class OpponentsController < ApplicationController
         end
     end
 
+    # Destroying the data
+
     delete '/opponents/:id' do
         @opponent = Opponent.find(params[:id])
         @opponent.destroy
         redirect to '/opponents'
     end
 
-    post '/opponents' do
-        opponent = Opponent.new(
-            :gamertag => params[:gamertag],
-            :game => params[:game],
-            :bracket => params[:bracket],
-            :characters => params[:characters],
-            :score => params[:score],
-            :user_id => params[:user_id]
-        )
-        if opponent.save && filled_info(opponent)
-            redirect '/opponents'
-        else
-            redirect '/opponents/new'
-        end
-    end
 end

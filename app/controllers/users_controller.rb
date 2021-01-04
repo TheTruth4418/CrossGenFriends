@@ -33,4 +33,9 @@ class UsersController < ApplicationController
       redirect "/"
     end
 
+    get "/user/home" do
+      @user = User.find(session[:user_id])
+      erb :'user/home'
+    end
+
 end
