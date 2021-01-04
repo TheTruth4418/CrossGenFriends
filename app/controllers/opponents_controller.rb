@@ -57,7 +57,6 @@ class OpponentsController < ApplicationController
             :score => params[:score],
             :user_id => params[:user_id]
         )
-        binding.pry
         if opponent.save && filled_info(opponent)
             redirect '/opponents'
         else
