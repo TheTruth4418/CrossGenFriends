@@ -43,7 +43,6 @@ class OpponentsController < ApplicationController
     end
 
     delete '/opponents/:id' do
-        binding.pry
         @opponent = Opponent.find(params[:id])
         @opponent.destroy
         redirect to '/opponents'
@@ -58,10 +57,11 @@ class OpponentsController < ApplicationController
             :score => params[:score],
             :user_id => params[:user_id]
         )
-        if opponent.save
+        binding.pry
+        if opponent.save && filled_info(opponent)
             redirect '/opponents'
         else
-            redirect 'error'
+            redirect '/opponents/new'
         end
     end
 end

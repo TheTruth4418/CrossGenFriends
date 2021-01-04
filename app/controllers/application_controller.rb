@@ -40,8 +40,12 @@ class ApplicationController < Sinatra::Base
     end
 
     def no_blank(user)
-      user.username != "" 
-      user.password != ""
+      user.username != "" && user.username != nil
+      user.password_digest != "" && user.password_digest != nil
+    end
+
+    def filled_info(opponent)
+      opponent.gamertag != "" && opponent.game != "" && opponent.bracket != "" && opponent.characters != "" && opponent.score != ""
     end
     
 end 
