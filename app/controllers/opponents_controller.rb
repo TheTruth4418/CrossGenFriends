@@ -1,9 +1,4 @@
 class OpponentsController < ApplicationController
-    get '/opponents' do
-        @opponents = Opponent.all
-        erb :'/opponents/opponents'
-    end
-
     # Creating an opponent
 
     get '/opponents/new' do
@@ -27,6 +22,11 @@ class OpponentsController < ApplicationController
     end
 
     # Reading the opponent data
+
+    get '/opponents' do
+        @opponents = Opponent.all
+        erb :'/opponents/opponents'
+    end
 
     get '/opponents/:id' do
         @opponent = Opponent.find(params[:id])
