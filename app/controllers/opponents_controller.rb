@@ -23,7 +23,7 @@ class OpponentsController < ApplicationController
 
     # Reading the opponent data
 
-    get '/opponents' do
+     get '/opponents' do
         @opponents = Opponent.all
         erb :'/opponents/opponents'
     end
@@ -41,7 +41,7 @@ class OpponentsController < ApplicationController
             if who_is_it(@opponent)
                 erb :'/opponents/edit'
             else
-                 redirect "user/#{current_user.id}"
+                 redirect "user/home"
             end
         else
             redirect '/'
@@ -60,7 +60,7 @@ class OpponentsController < ApplicationController
             )
             redirect "/opponents/#{@opponent.id}"
         else
-            redirect '/opponents'
+            redirect '/'
         end
     end
 
