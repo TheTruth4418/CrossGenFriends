@@ -4,15 +4,15 @@ class UsersController < ApplicationController
         erb :'/user/signup'
       end
     
-      post "/signup" do
-        user = User.new(:username => params[:username], :password => params[:password])
-        if user.save && no_blank(user)
-          session[:user_id] = user.id
-          redirect '/user/home'
-        else
-          redirect '/'
-        end
+    post "/signup" do
+      user = User.new(:username => params[:username], :password => params[:password])
+      if user.save && no_blank(user)         
+         session[:user_id] = user.id
+         redirect '/user/home'
+       else
+        redirect '/'
       end
+    end
     
     get '/login' do 
       erb :"/user/login"
