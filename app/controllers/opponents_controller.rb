@@ -14,10 +14,12 @@ class OpponentsController < ApplicationController
             :score => params[:score],
             :user_id => params[:user_id]
         )
-        if opponent.save && filled_info(opponent)
+        binding.pry
+        if filled_info(opponent)
+            opponent.save
             redirect '/opponents'
         else
-            redirect '/opponents/new'
+            redirect '/opponents'
         end
     end
 
